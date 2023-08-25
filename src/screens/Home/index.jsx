@@ -1,11 +1,23 @@
 import './index.css';
 import { useState } from 'react';
-import ShopBag from '../../assets/shopping-bag.svg'
+import { useNavigate } from "react-router-dom";
+import ShopBag from '../../assets/shopping-bag.svg';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 export default function HomeScreen() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
+
+  const onClickContinue = () => {
+    if(username.length < 3) {
+      alert('Username deve conter mais do que 3 caracteres!');
+      return;
+    }
+
+    localStorage.setItem('@supermarket-list:username', username);
+    navigate('/list');
+  }
 
   return(
     <div className='home-screen-container'>
@@ -25,7 +37,7 @@ export default function HomeScreen() {
           onChange={(text) => setUsername(text)} 
         />
         <div className='home-screen-form-container'>
-          <Button>Continuar</Button>
+          <Button onClick={onClickContinue}>Continuar</Button>
         </div>
       </div>
     </div>

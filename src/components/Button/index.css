@@ -1,4 +1,4 @@
-.button-container {
+button {
   width: 100%;
   background-color: #7785db;
   font-size: 14px;
@@ -8,4 +8,5 @@
   border: none;
   color: #FFF;
   font-weight: bold;
+  cursor: pointer;
 }

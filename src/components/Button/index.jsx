@@ -1,14 +1,15 @@
 import './index.css';
 import PropTypes from 'prop-types';
 
-export default function Button({ children }) {
+export default function Button({ children, onClick }) {
   return(
-    <button className='button-container'>
+    <button onClick={onClick}>
       {children}
     </button>
   )
 }
 
 Button.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.any.isRequired
 };

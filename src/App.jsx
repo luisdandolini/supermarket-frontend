@@ -1,10 +1,5 @@
-import HomeScreen from "./screens/Home"
+import AppRoutes from './Routes'
 
-function App() {
-
-  return (
-    <HomeScreen />
-  )
+export default function App() {
+  return <AppRoutes />
 }
-
-export default App

@@ -1,0 +1,5 @@
+@media screen and (max-width: 420px) {
+  .list-render {
+    margin-top: 7rem;
+  }
+}

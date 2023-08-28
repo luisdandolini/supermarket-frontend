@@ -55,3 +55,9 @@
 .text-quantity {
   font-size: 12px;
 }
+
+@media screen and (max-width: 420px) {
+  .list-card-container {
+    width: 260px;
+  }
+}

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import ListCard from "../ListCard";
+import './index.css';
 
 export default function ListRender({ list, onEdit }) {
   
@@ -12,7 +13,7 @@ export default function ListRender({ list, onEdit }) {
   }
 
   return(
-    <div>
+    <div className='list-render'>
       {
         list.map((item) => <ListCard onClick={onEdit} item={item} key={item?._id} />)
       }

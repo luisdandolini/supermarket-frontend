@@ -27,3 +27,9 @@
 .input:focus {
   outline: none;
 }
+
+@media screen and (max-width: 420px) {
+  .input-container {
+    max-width: 260px;
+  }
+}

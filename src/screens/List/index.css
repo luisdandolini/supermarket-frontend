@@ -55,3 +55,16 @@
   overflow-x: auto;
   overflow-y: auto;
 }
+
+@media screen and (max-width: 420px) {
+  .list-screen-header img {
+    width: 24px;
+    height: 24px;
+  }
+  .list-screen-header-title {
+    font-size: 12px;
+  }
+  .list-screen-content-container {
+    width: 85vw;
+  }
+}

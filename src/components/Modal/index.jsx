@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Input from '../Input';
 import './index.css';
 import Button from '../Button';
-import { createItem, updateItem } from '../../services/request';
+import { createItem, updateItem, deleteItem } from '../../services/request';
 
 export default function Modal({ onClose, item }) {
   const [name, setName] = useState('');
@@ -45,6 +45,14 @@ export default function Modal({ onClose, item }) {
     }
   }
 
+  const callDeleteItem = async () => {
+    const result = await deleteItem(item?._id);
+    if(!result?.error) {
+      alert('Item deletado com sucesso!')
+      onClose();
+    }
+  }
+
   useEffect(() => {
     if(item?.name && item?.quantity) {
       setName(item?.name)
@@ -71,17 +79,12 @@ export default function Modal({ onClose, item }) {
           onChange={(text) => setQuantity(text)} 
           type="number"
         />
-        <div className='modal-spacer'></div>
-        {
-          item ? (
-            <Button onClick={callUpdateItem}>
-              Editar
-            </Button>
-          ) : 
-          <Button onClick={callAddItem}>
-            Adicionar
+        <div className='buttons-container'>
+          {item && <Button icon variant="outline" onClick={callDeleteItem}>Deletar item</Button>}
+          <Button onClick={item ? callUpdateItem : callAddItem}>
+            {item ? "Atulizar" : "Adicionar"}
           </Button>
-        }
+        </div>
       </div>
     </div>
   )

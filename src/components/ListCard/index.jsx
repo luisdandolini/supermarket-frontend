@@ -4,10 +4,10 @@ import Checked from "../../assets/checked.svg";
 import UnChecked from "../../assets/unchecked.svg";
 
 export default function ListCard(props) {
-  const { item } = props;
+  const { item, onClick } = props;
 
   return(
-    <div className='list-card-container'>
+    <div className='list-card-container' onClick={() => onClick(item)}>
       <img className='checkbox' src={`${item?.checked ? Checked : UnChecked}`} alt="checked-item" />
       <div className='list-container-quantity'>
         <span>{props.item.name}</span>
@@ -21,6 +21,7 @@ ListCard.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string.isRequired,
     checked: PropTypes.bool.isRequired,
-    quantity: PropTypes.any.isRequired
-  }).isRequired
+    quantity: PropTypes.any.isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired, 
 };

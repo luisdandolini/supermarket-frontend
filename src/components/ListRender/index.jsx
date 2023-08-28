@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import ListCard from "../ListCard";
 
-export default function ListRender({ list }) {
+export default function ListRender({ list, onEdit }) {
   
   if(list?.length === 0) {
     return(
@@ -14,7 +14,7 @@ export default function ListRender({ list }) {
   return(
     <div>
       {
-        list.map((item) => <ListCard item={item} key={item?._id} />)
+        list.map((item) => <ListCard onClick={onEdit} item={item} key={item?._id} />)
       }
     </div>
   )
@@ -22,4 +22,5 @@ export default function ListRender({ list }) {
 
 ListRender.propTypes = {
   list: PropTypes.any.isRequired,
+  onEdit: PropTypes.any.isRequired
 };

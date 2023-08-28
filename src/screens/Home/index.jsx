@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ShopBag from '../../assets/shopping-bag.svg';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import { SAVE_USERNAME_PATH } from '../../services/constants';
 
 export default function HomeScreen() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function HomeScreen() {
       return;
     }
 
-    localStorage.setItem('@supermarket-list:username', username);
+    localStorage.setItem(SAVE_USERNAME_PATH, username);
     navigate('/list');
   }
 

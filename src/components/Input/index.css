@@ -4,12 +4,13 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 8px 16px;
-  width: 452px;
+  width: 402px;
   height: 56px;
   border-radius: 8px;
   border-color: #7785db;
   border-width: 2px;
   border-style: solid;
+  margin-bottom: 1rem;
 }
 
 .input-label {

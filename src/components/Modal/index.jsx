@@ -3,10 +3,29 @@ import PropTypes from 'prop-types';
 import Input from '../Input';
 import './index.css';
 import Button from '../Button';
+import { createItem } from '../../services/request';
 
 export default function Modal({ onClose }) {
   const [name, setName] = useState('');
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+
+  const callAddItem = async () => {
+    if(name.length < 3) {
+      alert('Nome tem que ter mais de 3 caracteres');
+      return;
+    }
+
+    if(quantity < 1) {
+      alert('Quantidade não pode ser menor do que 1');
+      return;
+    }
+
+    const result = await createItem({ name, quantity: parseInt(quantity) })
+    if(!result?.error) {
+      alert('Item salvo com sucesso!')
+      onClose();
+    }
+  }
 
   return(
     <div className='modal'>
@@ -28,7 +47,7 @@ export default function Modal({ onClose }) {
           type="number"
         />
         <div className='modal-spacer'></div>
-        <Button>
+        <Button onClick={callAddItem}>
           Adicionar
         </Button>
       </div>
@@ -37,5 +56,5 @@ export default function Modal({ onClose }) {
 }
 
 Modal.propTypes = {
-  onClose: PropTypes.any.isRequired,
+  onClose: PropTypes.func.isRequired,
 };

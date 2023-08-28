@@ -29,6 +29,7 @@ export default function ListScreen() {
 
   const onCloseModal = () => {
     setModalVisible(false);
+    loadListItems();
   }
 
   return(
